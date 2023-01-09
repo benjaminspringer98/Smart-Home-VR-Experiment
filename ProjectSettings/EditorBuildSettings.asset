@@ -12,6 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Smart_Home_Scenario.unity
     guid: a0e8cc89ef95b5c44bbd7dd8decffa50
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7769a4c70341b554ca168515be4d0715,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d64e3790d7b461148a2fa6345f4136cb,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b6749d7186be9c041b9fdbbf0e6fceda,
