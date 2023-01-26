@@ -5,11 +5,15 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     public bool isLocked;
+    public GameObject loggerObject;
+    Logger logger;
     Rigidbody rigidbody;
+    
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        logger = loggerObject.GetComponent<Logger>();
     }
 
     // Update is called once per frame
@@ -33,10 +37,12 @@ public class DoorController : MonoBehaviour
             if (isLocked)
             {
                 isLocked = false;
+                logger.Add("Haustür <color=green>aufgeschlossen</color>");
             }
             else
             {
                 isLocked = true;
+                logger.Add("Haustür <color=red>abgeschlossen</color>");
             }
                 
         }

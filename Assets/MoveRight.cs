@@ -26,6 +26,6 @@ public class MoveRight : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void right()
     {
-        cam.transform.Rotate(0, 0.2f, 0);
+        cam.transform.Rotate(0, 0.4f, 0);
     }
 }
