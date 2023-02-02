@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
         if (isOn)
         {
             isOn = false;
+            Debug.Log("turning off");
         }
         else
         {

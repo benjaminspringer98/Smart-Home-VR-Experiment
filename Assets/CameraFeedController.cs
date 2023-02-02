@@ -12,6 +12,7 @@ public class CameraFeedController : MonoBehaviour
     public Sprite buttonOn;
     public Sprite buttonOff;
     public GameObject loggerObject;
+    public GameObject recordingIndicator;
     Logger logger;
     bool isCameraOn;
     RawImage image;
@@ -19,7 +20,9 @@ public class CameraFeedController : MonoBehaviour
     Color off;
     float startTime;
     int passedTime;
-    
+
+
+    bool isIndicatorOn = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class CameraFeedController : MonoBehaviour
         image = GetComponent<RawImage>();
         logger = loggerObject.GetComponent<Logger>();
         startTime = Time.time;
+
+        InvokeRepeating("ToggleIndicatorLight", 0, 1f); // repeat every 1s
     }
 
     // Update is called once per frame
@@ -39,7 +44,8 @@ public class CameraFeedController : MonoBehaviour
             image.color = on;
             toggleButton.GetComponent<Image>().sprite = buttonOff;
             buttonLeft.gameObject.SetActive(true);
-            buttonRight.gameObject.SetActive(true);       
+            buttonRight.gameObject.SetActive(true);
+            recordingIndicator.SetActive(true);         
         }
         else
         {
@@ -47,6 +53,7 @@ public class CameraFeedController : MonoBehaviour
             toggleButton.GetComponent<Image>().sprite = buttonOn;
             buttonLeft.gameObject.SetActive(false);
             buttonRight.gameObject.SetActive(false);
+            recordingIndicator.SetActive(false);
         }
     }
 
@@ -67,4 +74,18 @@ public class CameraFeedController : MonoBehaviour
         }
     }
 
+    void ToggleIndicatorLight()
+    {
+        if(isIndicatorOn)
+        {
+            recordingIndicator.GetComponent<MeshRenderer>().material.color = Color.red;
+            isIndicatorOn = false;
+        }
+        else
+        {
+            recordingIndicator.GetComponent<MeshRenderer>().material.color = off;
+            isIndicatorOn = true;
+        }
+            
+    }
 }
