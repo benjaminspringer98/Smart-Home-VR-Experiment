@@ -20,8 +20,8 @@ public class CollisionSoundPlayer : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         volumeSound = rigidBody.velocity.magnitude; //maginitude converts velocity (Vector3) to a float. Refer to Unity API for more info
-
-        audioSource.PlayOneShot(collisionSound, volumeSound);
+        //magnitude disabled until ray interactors are not longer used for teleportation
+        audioSource.PlayOneShot(collisionSound);
 
     }
 

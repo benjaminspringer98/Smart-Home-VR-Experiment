@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DoorController : MonoBehaviour
 {
     public bool isLocked;
     public GameObject loggerObject;
+    private AudioSource audioSource;
     Logger logger;
     Rigidbody rigidbody;
-    
+    public AudioClip unlockSound;
+    public AudioClip lockSound;
+    public GameObject doorNotClosedObject;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         logger = loggerObject.GetComponent<Logger>();
+        audioSource = GetComponent<AudioSource>();
+        doorNotClosedObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,19 +42,24 @@ public class DoorController : MonoBehaviour
     {
         if(IsClosed())
         {
+            doorNotClosedObject.SetActive(false);
             if (isLocked)
             {
                 isLocked = false;
+                audioSource.clip = unlockSound;
+                audioSource.Play();
                 logger.Add("Haustür <color=green>aufgeschlossen</color>");
             }
             else
             {
                 isLocked = true;
+                audioSource.clip = lockSound;
+                audioSource.Play();
                 logger.Add("Haustür <color=red>abgeschlossen</color>");
             }
                 
         }
-            
-
+        else
+            doorNotClosedObject.SetActive(true);
     }
 }

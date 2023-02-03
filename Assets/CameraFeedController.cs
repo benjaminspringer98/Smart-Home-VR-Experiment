@@ -13,11 +13,15 @@ public class CameraFeedController : MonoBehaviour
     public Sprite buttonOff;
     public GameObject loggerObject;
     public GameObject recordingIndicator;
+    public RawImage cloudImage;
+    public GameObject cloudIcon;
     Logger logger;
     bool isCameraOn;
     RawImage image;
     Color on;
     Color off;
+    Color cloudImageOn;
+    Color cloudImageOff;
     float startTime;
     int passedTime;
 
@@ -29,6 +33,8 @@ public class CameraFeedController : MonoBehaviour
         isCameraOn = true;
         on = new Color(255, 255, 255, 255);
         off = new Color(0, 0, 0, 255);
+        cloudImageOn = new Color(255, 255, 255, 255);
+        cloudImageOff = new Color(255, 255, 255, 0);
         image = GetComponent<RawImage>();
         logger = loggerObject.GetComponent<Logger>();
         startTime = Time.time;
@@ -42,18 +48,22 @@ public class CameraFeedController : MonoBehaviour
         if (isCameraOn)
         {
             image.color = on;
+            cloudImage.color = cloudImageOn;
             toggleButton.GetComponent<Image>().sprite = buttonOff;
             buttonLeft.gameObject.SetActive(true);
             buttonRight.gameObject.SetActive(true);
+            cloudIcon.SetActive(true);
             recordingIndicator.SetActive(true);         
         }
         else
         {
             image.color = off;
+            cloudImage.color = cloudImageOff;
             toggleButton.GetComponent<Image>().sprite = buttonOn;
             buttonLeft.gameObject.SetActive(false);
             buttonRight.gameObject.SetActive(false);
-            recordingIndicator.SetActive(false);
+            cloudIcon.SetActive(false);
+            recordingIndicator.SetActive(false);      
         }
     }
 

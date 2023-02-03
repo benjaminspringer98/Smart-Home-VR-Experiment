@@ -42,7 +42,7 @@ public class LogDisplayController : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(20);
         canvas.enabled = true;
         xrRig.transform.position = new Vector3(1.75f, 0, -0.5f);
         xrRig.transform.rotation = Quaternion.Euler(0,270,0);
