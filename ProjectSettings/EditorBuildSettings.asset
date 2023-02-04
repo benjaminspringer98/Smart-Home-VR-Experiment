@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 2fe9133f5d8134e48bbff285848e2614
+  - enabled: 1
     path: Assets/Scenes/Smart_Home_Scenario.unity
     guid: a0e8cc89ef95b5c44bbd7dd8decffa50
   m_configObjects:
