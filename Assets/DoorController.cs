@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorController : MonoBehaviour
 {
@@ -14,6 +11,7 @@ public class DoorController : MonoBehaviour
     public AudioClip unlockSound;
     public AudioClip lockSound;
     public GameObject doorNotClosedObject;
+    public ActionBasedController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +58,11 @@ public class DoorController : MonoBehaviour
                 
         }
         else
+        {
             doorNotClosedObject.SetActive(true);
+            controller.GetComponent<VibrateController>().VibrateWeak(0.2f);
+        }
+            
+       
     }
 }

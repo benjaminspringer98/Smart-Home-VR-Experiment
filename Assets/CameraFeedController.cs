@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +7,7 @@ public class CameraFeedController : MonoBehaviour
     public Button toggleButton;
     public Button buttonLeft;
     public Button buttonRight;
+    public Button pictureButton;
     public Sprite buttonOn;
     public Sprite buttonOff;
     public GameObject loggerObject;
@@ -53,7 +52,8 @@ public class CameraFeedController : MonoBehaviour
             buttonLeft.gameObject.SetActive(true);
             buttonRight.gameObject.SetActive(true);
             cloudIcon.SetActive(true);
-            recordingIndicator.SetActive(true);         
+            recordingIndicator.SetActive(true);
+            pictureButton.gameObject.SetActive(true);
         }
         else
         {
@@ -63,7 +63,8 @@ public class CameraFeedController : MonoBehaviour
             buttonLeft.gameObject.SetActive(false);
             buttonRight.gameObject.SetActive(false);
             cloudIcon.SetActive(false);
-            recordingIndicator.SetActive(false);      
+            recordingIndicator.SetActive(false);
+            pictureButton.gameObject.SetActive(false);
         }
     }
 

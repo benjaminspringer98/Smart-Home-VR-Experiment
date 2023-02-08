@@ -15,6 +15,8 @@ public class DisplayFPS : MonoBehaviour
     private float milliseconds = 0.0f;
     private int framesPerSecond = 0;
 
+    string filePath;
+
     private void Awake()
     {
         textOutput = GetComponentInChildren<TextMeshProUGUI>();
@@ -22,6 +24,7 @@ public class DisplayFPS : MonoBehaviour
 
     private void Start()
     {
+        filePath = Application.persistentDataPath + "/screenshot.png";
         StartCoroutine(ShowFPS());
     }
 

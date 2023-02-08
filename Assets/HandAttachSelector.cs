@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandAttachSelector : MonoBehaviour
@@ -20,9 +18,9 @@ public class HandAttachSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (leftHand.hasSelection)
+        if (leftHand.selectTarget == grab)
             grab.attachTransform = leftHandTransform;
-        if (rightHand.hasSelection)
+        if (rightHand.selectTarget == grab)
             grab.attachTransform = rightHandTransform;
     }
 }

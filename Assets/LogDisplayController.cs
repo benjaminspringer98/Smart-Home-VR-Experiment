@@ -1,21 +1,23 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class LogDisplayController : MonoBehaviour
 {
     Canvas canvas;
-    public GameObject scrollView;
-    public GameObject content;
+    public GameObject scrollViewData;
+    public GameObject scrollViewPictures;
+    public GameObject scrollViewDataContent;
+    public GameObject scrollViewPicturesContent;
     public GameObject textObjectOriginal;
     TextMeshProUGUI textOriginal;
     public GameObject textFinalObject;
-    public GameObject buttonOriginal;
+    public GameObject firstButtonOriginal;
+    public GameObject secondButtonOriginal;
     public GameObject xrRig;
     public GameObject loggerObject;
+    public GameObject tabletUI;
     public Logger logger;
 
     // Start is called before the first frame update
@@ -25,8 +27,10 @@ public class LogDisplayController : MonoBehaviour
         textOriginal = textObjectOriginal.GetComponent<TextMeshProUGUI>();      
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
+        scrollViewPictures.SetActive(false);
         textFinalObject.SetActive(false);
-        buttonOriginal.SetActive(false);
+        firstButtonOriginal.SetActive(false);
+        
         StartCoroutine(Delay());
     }
 
@@ -42,24 +46,35 @@ public class LogDisplayController : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(90);
         canvas.enabled = true;
-        xrRig.transform.position = new Vector3(1.75f, 0, -0.5f);
-        xrRig.transform.rotation = Quaternion.Euler(0,270,0);
-        textOriginal.text += "Die folgenden Daten wurden am " + DateTime.Today.ToString("d") + " verarbeitet: \n";
+        tabletUI.SetActive(false);
+        xrRig.transform.position = new Vector3(1.75f, 0.00f, -0.5f);
+        textOriginal.text += "Ihr Smart Home Security System hat am " + DateTime.Today.ToString("d") +
+            " die folgenden Daten verarbeitet: \n";
        
         foreach( Log log in logger.logs)
         {
-            GameObject textObjectCopy = GameObject.Instantiate(textObjectOriginal, content.transform);
+            GameObject textObjectCopy = GameObject.Instantiate(textObjectOriginal, scrollViewDataContent.transform);
             textObjectCopy.GetComponent<TextMeshProUGUI>().text = log.dateTime.ToString("HH:mm:ss") + ": " + log.text + "\n";
         }
-        GameObject newButton = GameObject.Instantiate(buttonOriginal, content.transform);
-        newButton.SetActive(true);
+        GameObject firstButtonCopy = GameObject.Instantiate(firstButtonOriginal, scrollViewDataContent.transform);
+        firstButtonCopy.SetActive(true);
+    }
+
+    public void showSecondScreen()
+    {
+        scrollViewData.SetActive(false);
+        scrollViewPictures.SetActive(true);
+
+        GameObject secondButtonCopy = GameObject.Instantiate(secondButtonOriginal, scrollViewPicturesContent.transform);
+        secondButtonOriginal.SetActive(false);
+        secondButtonCopy.SetActive(true);
     }
 
     public void showFinalText()
     {
-        scrollView.SetActive(false);
+        scrollViewPictures.SetActive(false);
         textFinalObject.SetActive(true);
     }
 }
