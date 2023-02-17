@@ -1241,7 +1241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &315619540
 Transform:
   m_ObjectHideFlags: 0
@@ -1334,7 +1334,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: -0.5}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.1030148, y: 1.0152631, z: -0.2915554}
+  m_ConnectedAnchor: {x: -0.91501486, y: 1.0112634, z: -1.705555}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -5457,22 +5457,11 @@ MonoBehaviour:
   messages:
   - "Willkommen in VR! Versuche zu Beginn deine H\xE4nde zu bewegen. Mit dem \"Strahl\"
     kannst du mit dem User Interface interagieren. Visiere hiermit den Weiter Button
-    an und dr\xFCcke den Aktivierungs Button (am Zeigefinger)"
+    an und dr\xFCcke den Aktivierungs-Button (am Zeigefinger)"
   - "Gut gemacht! Der zweite wichtige Button ist der Greifen-Button. Er befindet
     sich an deinem Mittelfinger. Gehe zum Tablet und halte den Greifen-Button gedr\xFCckt,
     um es zu greifen. "
-  - "Sehr gut! Mit dem Greifen-Button sind verschiedenste Interaktionen m\xF6glich.
-    Gehe zur T\xFCr, greife den T\xFCrknauf und versuche sie zu \xF6ffnen. Kehre
-    anschlie\xDFend zur\xFCck "
-  - "Super! Auch mit dem Aktivierungsbutton sind weitere Interaktionen m\xF6glich.
-    So kannst du z. B. im User Interface scrollen. Greife das Tablet, zeige mit der
-    anderen Hand auf den Bildschirm und halte den Aktivierungsbutton gedr\xFCckt,
-    um den Bildschirm nach oben oder unten zu ziehen."
-  - "Tipp: solltest du mal ein dein Tablet, oder die Sicherheitskamera verlieren,
-    kannst du w\xE4hrend des Experiments einen der beiden Buttons an deinem Daumen
-    f\xFCr ca. 2 Sekunden gedr\xFCckt halten. Die Objekte finden sich dann an ihrem
-    urspr\xFCnglichen Platz wieder (Das ist im Tutorial deaktiviert)\r\n\r\nWenn
-    du bereit bist, dr\xFCcke auf weiter, um das Experiment zu beginnen."
+  - "Wenn du bereit bist, dr\xFCcke auf weiter, um das Experiment zu beginnen."
 --- !u!1 &982859585
 GameObject:
   m_ObjectHideFlags: 0

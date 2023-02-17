@@ -46,7 +46,7 @@ public class LogDisplayController : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(90);
+        yield return new WaitForSeconds(300);
         canvas.enabled = true;
         tabletUI.SetActive(false);
         xrRig.transform.position = new Vector3(1.75f, 0.00f, -0.5f);
